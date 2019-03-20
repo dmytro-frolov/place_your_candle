@@ -104,11 +104,9 @@ class App extends Component {
   }
 
   render() {
-    const candles = [];
-    //refactor via foreach
-    for (let i=0; i<this.state.candles.length; i++){
-        candles.push(<Candle candleType={ this.state.candles[i] }/>)
-    }
+    const candles = this.state.candles.map((candleType) => {
+     return <Candle candleType={ candleType }/>
+    })
 
     return (
         <div>
@@ -122,7 +120,7 @@ class App extends Component {
                 <CandlePanel addCandleHandler={ this.addCandleHandler } />
                 
                 <Col lg="6">
-                
+
                 </Col>
 
               </Row>
